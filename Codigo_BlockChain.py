@@ -104,7 +104,7 @@ def tracking(hash):
 # t7: Camila intenta transferir 5.5 NC a Miguel
 
 Nuevo_bloque([[Dict_Usuarios[70254688],Dict_Usuarios[75968222],5.5],[Dict_Usuarios[70254688],Dict_Usuarios[75968222],4.5]], "Primer bloque")
-Nuevo_bloque([[Dict_Usuarios[70369878],Dict_Usuarios[75852344],4.0]], last_transaction_hash)
+Nuevo_bloque([[Dict_Usuarios[70369878],Dictgi_Usuarios[75852344],4.0]], last_transaction_hash)
 Nuevo_bloque([[Dict_Usuarios[70254688],Dict_Usuarios[75852344],2.8]],last_transaction_hash)
 
 print("\nBLOQUES EXISTENTES:")
