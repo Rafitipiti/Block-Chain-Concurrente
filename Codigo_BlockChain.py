@@ -104,7 +104,7 @@ def tracking(hash):
 # t7: Camila intenta transferir 5.5 NC a Miguel
 
 Nuevo_bloque([[Dict_Usuarios[70254688],Dict_Usuarios[75968222],5.5],[Dict_Usuarios[70254688],Dict_Usuarios[75968222],4.5]], "Primer bloque")
-Nuevo_bloque([[Dict_Usuarios[70369878],Dictgi_Usuarios[75852344],4.0]], last_transaction_hash)
+Nuevo_bloque([[Dict_Usuarios[70369878],Dict_Usuarios[75852344],4.0]], last_transaction_hash)
 Nuevo_bloque([[Dict_Usuarios[70254688],Dict_Usuarios[75852344],2.8]],last_transaction_hash)
 
 print("\nBLOQUES EXISTENTES:")
@@ -112,4 +112,4 @@ for i in Dict_Bloques:
     print(Dict_Bloques[i].block_data + " | HASH -> " + Dict_Bloques[i].block_hash)
 
 print("\n")
-tracking("1d1d23c3a6cd0c39de6f22a69b58c9e9fe863b54490ee6d1cdb0d1019cb0720b")
+tracking("517db80361823f501bd49108990e7654cd22593ea698a5302409164ebe318246")
