@@ -1,0 +1,17 @@
+@import '../../styles/configuration.scss';
+
+.home__title {
+  text-align: center;
+  font-size: 40px;
+  font-weight: $font-bold;
+}
+
+.home-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 100px;
+  padding: 50px;
+  align-items: center;
+  justify-content: center;
+}

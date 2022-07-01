@@ -1,0 +1,42 @@
+@import '../../../styles/configuration.scss';
+
+.button {
+  border: 0;
+  outline: none;
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  color: $color-black;
+  background: $color-white;
+  font-size: $font-size;
+  border-radius: $border-radius;
+  margin: 10px;
+  cursor: pointer;
+  font-weight: $font-semi-bold;
+
+  &:hover {
+    background: $color-red-lighter;
+    color: $color-white;
+  }
+
+  &--red {
+    background: $color-red;
+    color: $color-white;
+
+    &:hover {
+      background: $color-red-lighter;
+      color: $color-white;
+    }
+  }
+
+  &--blue {
+    background: $color-blue;
+    color: $color-white;
+
+    &:hover {
+      background: $color-white;
+      color: $color-blue;
+    }
+  }
+}

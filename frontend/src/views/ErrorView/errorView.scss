@@ -1,0 +1,21 @@
+@import '../../styles/configuration.scss';
+
+.error-container {
+  display: flex;
+  flex-grow: 0.5;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 50px;
+
+  &__title {
+    font-size: 60px;
+    font-weight: $font-bold;
+  }
+}
+
+@media screen and (max-width: $phone-view-width) {
+  .error-container__title {
+    font-size: 40px;
+  }
+}

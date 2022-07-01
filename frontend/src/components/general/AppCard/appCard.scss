@@ -1,0 +1,43 @@
+@import '../../../styles/configuration.scss';
+
+.app-card {
+  display: grid;
+  grid-template-rows: 4fr 1fr;
+  min-width: 100px;
+  max-width: 400px;
+  max-height: 500px;
+
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.7);
+  cursor: pointer;
+  transition: 300ms;
+  border-radius: $border-radius;
+  border: 0;
+  outline: 0;
+
+  &__image {
+    grid-row: 1;
+    width: 100%;
+    height: 100%;
+    border-top-left-radius: $border-radius;
+    border-top-right-radius: $border-radius;
+  }
+
+  &__text {
+    grid-row: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $color-white;
+    color: $color-blue;
+    font-size: $font-size-extra;
+    font-weight: $font-semi-bold;
+    border-bottom-left-radius: $border-radius;
+    border-bottom-right-radius: $border-radius;
+    height: 100%;
+  }
+
+  &:hover {
+    transform: scale(1.1);
+    transition: 300ms;
+  }
+}

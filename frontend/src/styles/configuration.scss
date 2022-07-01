@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@100;200;300;400;500;600;700;800&display=swap');
+
+$font-style: 'Open Sans';
+
+$font-extra-light: 200;
+$font-light: 300;
+$font-medium: 500;
+$font-semi-bold: 600;
+$font-bold: 700;
+$font-extra-bold: 800;
+
+$font-size: 16px;
+$font-size-extra: $font-size + 4px;
+
+$color-blue: #1d3557;
+$color-blue-transparent: #1d3557d2;
+
+$color-blue-soft: #68aecf;
+$color-blue-lighter: #7d8b9f;
+$color-blue-darker: #0c1727;
+
+$color-red: #e64946;
+$color-red-transparent: #e64946d2;
+
+$color-red-lighter: #f09795;
+
+$color-white: #ffffff;
+$color-white-transparent: #ffffffd2;
+
+$color-black: #181818;
+
+$color-gray-transparent: rgba(77, 77, 77, 0.9);
+
+$border-radius: 5px;
+
+$tablet-view-width: 780px;
+$phone-view-width: 480px;
