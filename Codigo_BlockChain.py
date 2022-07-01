@@ -86,4 +86,6 @@ for i in Dict_Bloques:
     print(Dict_Bloques[i].block_data + " | HASH -> " + Dict_Bloques[i].block_hash)
 
 print("\n")
+
+#Funcion tracking
 tracking("1d1d23c3a6cd0c39de6f22a69b58c9e9fe863b54490ee6d1cdb0d1019cb0720b")
