@@ -1,0 +1,175 @@
+{
+	"info": {
+		"_postman_id": "d6c81ced-dbdc-46b5-a077-16ee2c5e52d7",
+		"name": "BLOCKCHAIN API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET PENDING TRANSACTION",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/pending_tx",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"pending_tx"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET CHAIN",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/chain",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"chain"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "REQUEST MINE",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/mine",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"mine"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ADD TRANSACTION",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"from\": \"sergio\",\n    \"to\": \"fiorella\",\n    \"amount\": \"500\",\n    \"currency\": \"nuevos soles\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/new_transaction",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"new_transaction"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "REGISTER NEW NODE",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"node_address\":\"http://127.0.0.1:8001\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/register_node",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"register_node"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ADD HOST TO REMOTE NODE",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"node_address\": \"http://127.0.0.1:8001\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/register_with",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"register_with"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://127.0.0.1:8000",
+			"type": "string"
+		}
+	]
+}
