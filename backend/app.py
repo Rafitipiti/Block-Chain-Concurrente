@@ -5,8 +5,9 @@ import time
 from urllib import response
 from uuid import uuid4
 from urllib.parse import urlparse
+from flask_cors import cross_origin
 import requests
-from flask import Flask, jsonify, request, send_from_directory
+from flask import Flask, jsonify, request, send_from_directory, jsonify
 from blockchain import *
 
 app = Flask(__name__)
@@ -74,6 +75,7 @@ def announce_new_block(block):
 
 #ENDPOINT PARA AGREGAR TRANSACCIONES
 @app.route('/new_transaction', methods=['POST'])
+@cross_origin()
 def new_transaction():
     tx_data = request.get_json()
     required_fields = ["from", "to","amount","currency"]
@@ -82,24 +84,27 @@ def new_transaction():
             return "Invalid transaction data", 404
     tx_data["timestamp"] = time.time()
     blockchain.add_new_transaction(tx_data)
-    return "Success", 201
+    return jsonify("Success",200)
 
 #ENDPOINT PARA OBTENER LA CADENA QUE CONTIENE LA DATA
 @app.route('/chain', methods=['GET'])
+@cross_origin()
 def get_chain():
     chain_data = []
     for block in blockchain.chain:
         chain_data.append(block.__dict__)
-    return json.dumps({"length": len(chain_data),
+    return jsonify({"length": len(chain_data),
                        "chain": chain_data,
                        "peers": list(peers)})
 
+
 #ENDPOINT QUE EMPIEZA EL PROCESO DE MINADO A TRANSACCIONES NO CONFIRMADAS
 @app.route('/mine', methods=['GET'])
+@cross_origin()
 def mine_unconfirmed_transactions():
     result = blockchain.mine()
     if not result:
-        return "No transactions to mine"
+        return jsonify("No transactions to mine")
     else:
         #OBTENER LA CADENA MÁS LARGA
         chain_length = len(blockchain.chain)
@@ -107,15 +112,16 @@ def mine_unconfirmed_transactions():
         if chain_length == len(blockchain.chain):
             #ANUNCIAR EL BLOQUE MINADO A LA RED
             announce_new_block(blockchain.last_block)
-        return "Block #{} is mined.".format(blockchain.last_block.index)
+        return jsonify("Block #{} is mined.".format(blockchain.last_block.index))
 
 
 #ENDPOINT PARA AGREGAR MIEMBROS A LA RED
 @app.route('/register_node', methods=['POST'])
+@cross_origin()
 def register_new_peers():
     node_address = request.get_json()["node_address"]
     if not node_address:
-        return "Invalid data", 400
+        return jsonify("Invalid data", 400)
 
     peers.add(node_address)
 
@@ -123,6 +129,7 @@ def register_new_peers():
 
 
 @app.route('/register_with', methods=['POST'])
+@cross_origin()
 def register_with_existing_node():
     """
     Llama al ENDOPOINT register_node para registrar
@@ -131,7 +138,7 @@ def register_with_existing_node():
     """
     node_address = request.get_json()["node_address"]
     if not node_address:
-        return "Invalid data", 400
+        return jsonify("Invalid data", 400)
 
     data = {"node_address": request.host_url}
     headers = {'Content-Type': "application/json"}
@@ -147,9 +154,9 @@ def register_with_existing_node():
         chain_dump = response.json()['chain']
         blockchain = create_chain_from_dump(chain_dump)
         peers.update(response.json()['peers'])
-        return "Registration successful", 200
+        return jsonify("Registration successful", 200)
     else:
-        return response.content, response.status_code
+        return jsonify(response.content, response.status_code)
 
 # ENDPOINT PARA AGREGAR UN BLOQUE MINADO POR ALGUIEN MAS
 # A LA CADENA DEL NODO. (VERIFICACION)
@@ -173,8 +180,9 @@ def verify_and_add_block():
 
 #ENDPOINT PARA OBTENER TRANSACCIONES PENDIENTES
 @app.route('/pending_tx')
+@cross_origin()
 def get_pending_tx():
-    return json.dumps(blockchain.unconfirmed_transactions)
+    return jsonify(blockchain.unconfirmed_transactions)
 
 if __name__ == '__main__':
     app.run(debug=True, port=8000)
