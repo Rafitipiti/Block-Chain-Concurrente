@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { newTransaction } from 'utils/fetchAPI';
+import 'styles/transferView.scss';
 
 const TransferView = () => {
   const navigate = useNavigate();
@@ -19,36 +20,37 @@ const TransferView = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        FROM:
-        <input
-          type="text"
-          name="from"
-          onChange={(e) => setFrom(e.target.value)}
-        />
-      </label>
-      <label>
-        TO:
-        <input type="text" name="to" onChange={(e) => setTo(e.target.value)} />
-      </label>
-      <label>
-        AMOUNT:
-        <input
-          type="text"
-          name="amount"
-          onChange={(e) => setAmount(e.target.value)}
-        />
-      </label>
-      <label>
-        CURRENCY:
-        <input
-          type="text"
-          name="currency"
-          onChange={(e) => setCurrency(e.target.value)}
-        />
-      </label>
-      <input type="submit" name="submit" />
+    <form onSubmit={handleSubmit} className="form-container">
+      <div>FROM</div>
+      <input
+        type="text"
+        name="from"
+        onChange={(e) => setFrom(e.target.value)}
+      />
+
+      <div>TO</div>
+      <input type="text" name="to" onChange={(e) => setTo(e.target.value)} />
+
+      <div>AMOUNT</div>
+      <input
+        type="text"
+        name="amount"
+        onChange={(e) => setAmount(e.target.value)}
+      />
+
+      <div>CURRENCY</div>
+      <input
+        type="text"
+        name="currency"
+        onChange={(e) => setCurrency(e.target.value)}
+      />
+
+      <input
+        className="button-input"
+        type="submit"
+        name="submit"
+        value={'SEND MONEY'}
+      />
     </form>
   );
 };
