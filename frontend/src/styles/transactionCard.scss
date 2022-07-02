@@ -1,0 +1,11 @@
+@import './configuration.scss';
+.transaction-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  background-color: $color-blue-darker;
+  color: white;
+  padding: 20px;
+  border-radius: $border-radius;
+  width: 600px;
+}
